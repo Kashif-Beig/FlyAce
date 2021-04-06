@@ -1,0 +1,251 @@
+<div class="container-fluid" style="margin-top: 20%; margin-bottom: 10%; width: 75%;">
+    <div class="container-fluid custContainer" >
+        <ul class="nav nav-tabs" >
+            <li class="nav-item">
+              <a class="nav-link " [ngClass]="{active: trip}" (click)="changeTrip(true)">
+                  <h4>MUM 
+                    <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>  
+                    DEL</h4>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" *ngIf="tripType==1" [ngClass]="{active: !trip}" (click)="changeTrip(false)">
+                <h4>DEL 
+                    <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>  
+                    MUM</h4>
+              </a>
+            </li>
+        </ul>
+        <div class="container" class="container" *ngIf="trip==true">
+            <!--ngFor-->
+                <div class="tab" >
+                    <div class="row">
+                    <div class="col-2" style="text-align: left;">
+                        <h5 class="timeLoc">02:50 BOM</h5>
+                        Mumbai
+                    </div>
+                    <div class="col-mb-auto duration">
+                        <i class="fa fa-clock-o fa-lg" aria-hidden="true"></i>
+                        <br>
+                        2h 30m
+                    </div>
+                    <div class="col-2" style="text-align: right;">
+                        <h5 class="timeLoc">05:20 DEL</h5>
+                        Delhi
+                    </div>
+                    <div class="col-2">
+                        Economy
+                        <h5>2500 INR</h5>
+                        
+                    </div>
+                    <div class="col-2">
+                        Business
+                        <h5>4000 INR</h5>
+                    </div>
+                    <div class="col-2">
+                        <h5>10</h5>
+                        <span style="font-size: 12px;">Seats Available</span>
+                    </div>
+                    <div class="col">
+                        <button class="bookbutton">
+                        Select
+                    </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2" style="text-align: left;">
+                        <span class="card-link" (click)="showDetails()">Flight Details
+                            <i class="fa" [ngClass]="details? 'fa-angle-up' : 'fa-angle-down'" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="row justify-content-start" style="font-size: 12px;" *ngIf="details">
+                    <div class="col-2" style="text-align: left;">
+                        Date
+                        <br>
+                        Pl0001, Terminal 3
+                    </div>
+                    <div class="col-1 getCenter">
+                        -
+                    </div>
+                    <div class="col-2" style="text-align: right;">
+                        Date
+                        <br>
+                        Pl0001, Terminal 2
+                    </div>
+                    <div class="col-2 getCenter">
+                        services, services
+                    </div>
+                </div>
+            </div>
+            <!--ngFor End-->
+            <div class="tab">
+                <div class="row">
+                <div class="col-2" style="text-align: left;">
+                    <h5 class="timeLoc">02:50 BOM</h5>
+                    Mumbai
+                </div>
+                <div class="col-mb-auto duration">
+                    <i class="fa fa-clock-o fa-lg" aria-hidden="true"></i>
+                    <br>
+                    2h 30m
+                </div>
+                <div class="col-2" style="text-align: right;">
+                    <h5 class="timeLoc">05:20 DEL</h5>
+                    Delhi
+                </div>
+                <div class="col-2">
+                    Economy
+                    <h5>2500 INR</h5>
+                    
+                </div>
+                <div class="col-2">
+                    Business
+                    <h5>4000 INR</h5>
+                </div>
+                <div class="col-2">
+                    <h5>10</h5>
+                    <span style="font-size: 12px;">Seats Available</span>
+                </div>
+                <div class="col">
+                    <button class="bookbutton">
+                    Select
+                </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2" style="text-align: left;">
+                    <span class="card-link" (click)="showDetails()">Flight Details
+                        <i class="fa" [ngClass]="details? 'fa-angle-up' : 'fa-angle-down'" aria-hidden="true"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="row justify-content-start" style="font-size: 12px;" *ngIf="details">
+                <div class="col-2" style="text-align: left;">
+                    Date
+                    <br>
+                    Pl0001, Terminal 3
+                </div>
+                <div class="col-1 getCenter">
+                    -
+                </div>
+                <div class="col-2" style="text-align: right;">
+                    Date
+                    <br>
+                    Pl0001, Terminal 2
+                </div>
+                <div class="col-2 getCenter">
+                    services, services
+                </div>
+            </div>
+        </div>
+    
+        </div>
+        <!--***************************************RETURN*************************************************************************-->
+        <div class="container" *ngIf="trip==false">
+            <!--ngFor-->
+            <div class="tab">
+                <div class="row">
+                <div class="col-2" style="text-align: left;">
+                    <h5 class="timeLoc">06:00 DEL</h5>
+                    Delhi
+                </div>
+                <div class="col-mb-auto duration">
+                    <i class="fa fa-clock-o fa-lg" aria-hidden="true"></i>
+                    <br>
+                    2h 30m
+                </div>
+                <div class="col-2" style="text-align: right;">
+                    <h5 class="timeLoc">08:30 MUM</h5>
+                    Mumbai
+                </div>
+                <div class="col-2">
+                    Economy
+                    <h5>2000 INR</h5>
+                    
+                </div>
+                <div class="col-2">
+                    Business
+                    <h5>3500 INR</h5>
+                </div>
+                <div class="col-2">
+                    <h5>35</h5>
+                    <span style="font-size: 12px;">Seats Available</span>
+                </div>
+                <div class="col">
+                    <button class="bookbutton">
+                    Select
+                </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2" style="text-align: left;">
+                    <span class="card-link" (click)="showDetails()">Flight Details
+                        <i class="fa" [ngClass]="details? 'fa-angle-up' : 'fa-angle-down'" aria-hidden="true"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="row justify-content-start" style="font-size: 12px;" *ngIf="details">
+                <div class="col-2" style="text-align: left;">
+                    Date
+                    <br>
+                    Pl0001, Terminal 2
+                </div>
+                <div class="col-1 getCenter">
+                    -
+                </div>
+                <div class="col-2" style="text-align: right;">
+                    Date
+                    <br>
+                    Pl0001, Terminal 1
+                </div>
+                <div class="col-2 getCenter">
+                    services, services
+                </div>
+            </div>
+        </div>
+        </div>
+    <br><br>
+    <br><br>
+    <div class="selectedTab">
+        <div class="row justify-content-start">
+            <div class="col-2 getCenter" style="padding-right: 1%; padding-left: 1%;">
+                <i class="fa fa-suitcase fa-3x" aria-hidden="true" style="color: rgb(53, 25, 110);"></i>
+            </div>
+            <div class="col-3" style="padding-right: 1%; padding-left: 1%;">
+                <h5 style="margin-bottom: 0%;">
+                    2500 INR
+                </h5>
+                <span style="font-size: 13px;">
+                    02:50 (BOM) - 05:20 (DEL)
+                </span>
+            </div>
+            <div class="col-3" style="padding-right: 1%; padding-left: 1%;">
+                <h5 style="margin-bottom: 0%;">
+                    2000 INR
+                </h5>
+                <span style="font-size: 13px;">
+                    06:00 (DEL) - 08:30 (BOM)
+                </span>
+            </div>
+            <div class="col-2"  style="padding-right: 1%; padding-left: 1%;">
+                <span style="font-size: 13px;">
+                    Total minimum Amount
+                
+                <h5 style="margin-bottom: 0%;">
+                    4500 INR
+                </h5>
+                *Excludin Tax
+                </span>
+            </div>
+            <div class="col-2">
+                <button class="bookbutton">
+                    BOOK
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+    </div>
+    

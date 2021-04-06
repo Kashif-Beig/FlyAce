@@ -1,0 +1,50 @@
+.navigation{
+position: absolute;
+  height: 90px;
+  width: 100%;
+  
+}
+
+.navigation a
+{
+  float: left;
+  color: white;
+  text-align:justify;
+  padding: 30px;
+  font-size: 25px;
+}
+
+a
+{
+  display: block;
+  text-decoration: none;
+}
+.navigation a:hover
+{
+  /* background-color: rgba(209, 192, 243, 0.438); */
+  color: rgb(255, 153, 0);;
+}
+
+
+/* 
+.nav-link.active
+{
+    background: mediumpurple;
+    color: white;
+}
+.nav-link.active:hover
+{
+    color: white;
+}
+.nav-link:hover
+{
+    border-color: orange;
+    border-width: 1.5px;
+    cursor: pointer;
+}
+.nav.nav-tabs
+{
+    border-color: orange;
+    border-width: 1.5px;
+} */
+
