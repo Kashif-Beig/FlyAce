@@ -1,6 +1,6 @@
 .nav-link.active
 {
-    background: mediumpurple;
+    background: rgb(68, 69, 124);
     color: white;
 }
 .nav-link.active:hover
@@ -32,7 +32,11 @@
   -webkit-box-shadow: 0px 1px 0px #ad392d, inset 0px 1px 0px white;
      -moz-box-shadow: 0px 1px 0px #ad392d, inset 0px 1px 0px white;
           box-shadow: 0px 1px 0px #ad392d, inset 0px 1px 0px white;
-  box-shadow: 5px 5px 15px;
+  box-shadow: 3px 3px 10px;
+}
+.tab:hover
+{
+    box-shadow: 7px 5px 15px;
 }
 .getCenter
 {
@@ -54,7 +58,7 @@
 }
 .timeLoc
 {
-    color: rgb(53, 25, 110);
+    color: rgb(68, 69, 124);
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 .duration
@@ -63,7 +67,7 @@
 }
 .bookbutton {
     color: #fff;
-    background: mediumpurple;
+    background: rgb(103, 104, 177);
     border: 0;
     outline: 0;
     width: 100%;

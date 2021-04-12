@@ -1,0 +1,78 @@
+<div class="container-fluid" style="margin-top: 20%; margin-bottom: 10%; width: 75%;">
+    <div class="container-fluid custContainer" >
+        <h1 style="text-align: center;"><b >Who's Flying</b></h1>
+        <hr style="background-color: rgb(255, 153, 0);">
+    
+        <form   [formGroup]="PassengerForm" (ngSubmit)="onSubmit()" novalidate>
+            <section class="PassForm">
+            <h4><b>Passenger 1:</b></h4>
+
+            <label class="col-2" for="SeatNo"><b>Seat Number</b> 
+            <input type="text" name="SeatNo" id="SeatNo" formControlName="SeatNo" disabled>
+            </label>
+
+            <label class="col-2" for="PassengerName"><b>Passenger Name</b> 
+            <input type="text" name="PassengerName" id="PassengerName" formControlName="PassengerName" placeholder="Enter Passenger Name">
+            <div class="validcheck" *ngIf="!PassengerName?.valid && (PassengerName?.dirty || PassengerName?.touched)">
+                <div class="fn" [hidden]="!PassengerName.errors.required">
+                    Passenger name is required
+                </div>
+                </div>
+            </label>
+
+            <label class="col-2" for="Contact"><b>Contact Number</b>
+            <input type="tel" name="Contact" id="phone_number" pattern="[6789]/d{9}$"  formControlName="Contact" placeholder="Enter Contact Number">
+            <div class="validcheck" *ngIf="!Contact?.valid && (Contact?.dirty || Contact?.touched)">
+                <div  class="con" [hidden]="!Contact.errors.required">
+                  Contact is required
+                </div>
+                <div  class="con1" [hidden]="!Contact.errors.Contact">
+                invalid Contact
+                </div>
+                </div>
+            </label>  
+            
+           <label class="col-2" for="DOB"><b>Date of Birth</b>
+            <input type="date" name="DOB" id="DOB" formControlName="DOB" placeholder="Enter DOB">
+            <div class="validcheck" *ngIf="!DOB?.valid && (DOB?.dirty || DOB?.touched)">
+                <div  class="dob" [hidden]="!DOB.errors.required">
+                   DOB is required
+                </div>
+            </div>
+            </label>
+
+            <label class="col-2" for ="Gender"><b>Select Gender</b> 
+                <select class="dropdown-header" placeholder="Adult">
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Others</option>
+                </select>
+                </label>
+                <label class="col-2" for="Type"><b>Passenger Type</b> 
+                <select class="dropdown-header" placeholder="Adult">
+                    <option>Adult</option>
+                    <option>Infant</option>
+                    <option>Senior Citizen</option>
+                </select>
+                </label>
+
+            <label class="col-2" for="DocType"><b>Document Type</b> 
+            <select class="dropdown-header" placeholder="AadharCard">
+                <option>Pan Card</option>
+                <option>Passport</option>
+                <option>Aadhar Card</option>
+            </select>
+            </label>
+
+            <label class="col-2" for="DocNo"><b>Document Number</b> 
+            <input type="text" name="DocNo" id="DocNo" formControlName="DocNo" >
+            </label>
+        </section>
+            <button type="submit" name="submit" class="submitbutton"  style="width: 40%; float: right;" [routerLink]="['/bookindDetails']">
+                Proceed <i class="fa fa-chevron-circle-right fa-lg" aria-hidden="true"></i> 
+            </button>
+        </form>
+  
+
+    </div>
+</div>

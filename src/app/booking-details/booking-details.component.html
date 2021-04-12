@@ -1,0 +1,100 @@
+<div class="main-booking container-fluid" style="width: 75%;"> 
+
+    <h2 class="heading font-weight-bold" >
+        <i class="fa fa-file-text" aria-hidden="true"></i>
+        Booking Details
+    </h2>
+    <hr style="background-color: rgb(255, 153, 0);">
+    <div class ="tripsummary">
+    
+        <div class="col-xs-6 col-md-4">
+            
+               <div class="col" style="font-family: Verdana, Geneva, Tahoma, sans-serif; text-align: left;">Trip Summary</div>
+        </div>
+            
+        <hr class="line">
+    
+        <div class="bookingdetails">      
+                        <div class="bdeatils">  Delhi to Mumbai</div>
+                        <div class="bdeatils">  May 05,2021</div>
+                        <br>
+                        <div class="bdeatils">  1 ticket : One- Way trip</div>
+                        <hr class="line2">
+        </div>
+        <div class="paymentdetails">
+                        <div class="charges" style="color: rgb(68, 69, 124);font-weight: 800;">Traveller 1:Adult</div>
+                        <br>
+                        <br>
+                        <div class="charges">Fees</div>
+                        <div class="amount">Rs. 4700.00</div>
+                        <br>
+                        <br>
+                        <div class="charges">Taxes & GST</div>
+                        <div class="amount">Rs. 460.00</div>
+                        <br>
+                        <hr class="line">
+                        <div style="text-align: center;color: rgb(38, 107, 18);font: weight 50%;font-size:larger;">Total : Rs.5200  </div>
+    
+        </div>
+        </div>      
+    
+    <div class="flightdetails">
+    
+      <div class="heading1"> <i class="fa fa-plane"> Your Trip to Mumbai,MU</i></div>
+      <div class="heading2">05 May 2021,Tuesday | Total Price : Rs. 5200.00</div>
+    
+    
+        <div class="fligthtable">
+          <table class="table" >
+              <thead>
+                    <tr>
+                        <th scope="col" rowspan="2">Plane Id</th>
+                        <th scope="col">From </th>
+                        <th scope="col"> Departure Date&Time</th>
+                        <th scope="col">To </th>
+                        <th scope="col"> Arrival Date&Time</th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+                      <td>P1201</td>
+                      <td>Delhi</td>
+                      <td>12/05/2021 | 12:30</td>
+                      <td>Banglore</td>
+                      <td>12/05/2021 | 2:45</td>
+                </tbody>
+              </table>
+    
+             
+             
+                <table class="table ">
+                  <thead>
+                      <tr>
+                          <th scope="col" rowspan="1">Tickets</th>
+                          <td>1S </td>
+                          <td>2C</td>
+                          
+                        </tr>
+                        <tr>
+                          <th scope="col">Class</th>
+                          <td>Economy</td>
+                          <td>Economy</td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Price</th>
+                            <td>2500</td>
+                            <td>2500</td>
+                          </tr>
+                  </thead>
+                </table>
+          </div>
+            
+    
+
+    </div>
+        
+    <div class="checkoutbutton">
+        <button type="submit" class="btn btn-default" [routerLink]="['/payment']">Proceed to Payment <i class="fa fa-chevron-circle-right fa-lg" aria-hidden="true"></i> 
+        </button>
+    </div>
+</div>   

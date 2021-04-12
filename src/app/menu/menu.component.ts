@@ -7,7 +7,11 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-
+  logged:boolean= true;
+  logout()
+  {
+    this.logged = false;
+  }
   bookingForm = new FormGroup({
     from: new FormControl('', Validators.required),
     to: new FormControl('', Validators.required),

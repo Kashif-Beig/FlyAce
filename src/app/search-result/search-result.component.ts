@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchResultComponent implements OnInit {
 
-  tripType = 1;
+  tripType = 0;
   trip:boolean = true;
   changeTrip(t:boolean)
   {

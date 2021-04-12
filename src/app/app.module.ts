@@ -11,6 +11,13 @@ import { BookingComponent } from './booking/booking.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { SelectSeatsComponent } from './select-seats/select-seats.component';
+import { BookingDetailsComponent } from './booking-details/booking-details.component';
+import { PaymentComponent } from './payment/payment.component';
+import { YourTicketsComponent } from './your-tickets/your-tickets.component';
+import { ViewTicketComponent } from './view-ticket/view-ticket.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { PassengerDetailsComponent } from './passenger-details/passenger-details.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +28,14 @@ import { SearchResultComponent } from './search-result/search-result.component';
     BookingComponent,
     AboutUsComponent,
     ContactUsComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    SelectSeatsComponent,
+    BookingDetailsComponent,
+    PaymentComponent,
+    YourTicketsComponent,
+    ViewTicketComponent,
+    UserDetailsComponent,
+    PassengerDetailsComponent
   ],
   imports: [
     BrowserModule,
