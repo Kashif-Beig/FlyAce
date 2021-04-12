@@ -30,6 +30,12 @@
                     <option value="3" class="dropdown-item">Hyderabad</option>
                     <option value="4" class="dropdown-item">Chennai</option>
                 </select>
+                <!-- Validation -->
+                <div class="errorEx" *ngIf="!from?.valid && (from?.dirty || from?.touched)" >
+                    <div [hidden]="!from.errors.required">
+                       *Required
+                    </div>
+                </div>
             </td>
             <td>
                 <select id="to" class="dropdown-header"  formControlName="to">
@@ -38,15 +44,39 @@
                     <option value="3" class="dropdown-item">Hyderabad</option>
                     <option value="4" class="dropdown-item">Chennai</option>
                 </select>
+                <!-- Validation -->
+                <div class="errorEx" *ngIf="!to?.valid && (to?.dirty || to?.touched)" >
+                    <div [hidden]="!to.errors.required">
+                       *Required
+                    </div>
+                </div>
             </td>
             <td>
                 <input type="date" class="form-control"  id="dapartDate" name="dapartDate" formControlName="departDate"/>
+                <!-- Validation -->
+                <div class="errorEx" *ngIf="!departDate?.valid && (departDate?.dirty || departDate?.touched)" >
+                    <div [hidden]="!departDate.errors.required">
+                       *Required
+                    </div>
+                </div>
             </td>
             <td>
                 <input type="date" class="form-control" id="returnDate" name="returnDate"  formControlName="returnDate"/>
+                <!-- Validation -->
+                <div class="errorEx" *ngIf="!returnDate?.valid && (returnDate?.dirty || returnDate?.touched) && !returnDate.disabled" >
+                    <div [hidden]="!returnDate.errors.required">
+                       *Required
+                    </div>
+                </div>
             </td>
             <td>
                 <input type="number" class="form-control"  id="passengers" name="passengers" formControlName="passengers" min="1"/>
+                <!-- Validation -->
+                <div class="errorEx" *ngIf="!passengers?.valid && (passengers?.dirty || passengers?.touched)" >
+                    <div [hidden]="!passengers.errors.required">
+                       *Required
+                    </div>
+                </div>
             </td>
         </tr>
         <tr>
@@ -62,7 +92,7 @@
             </td>
         </tr>
     </table>
-    <button type="submit" name="submit" class="submitbutton" style="margin-top: 1%; margin-bottom: 1%; width: 40%;" [routerLink]="['/Search']">
+    <button type="submit" name="submit" class="submitbutton" style="margin-top: 1%; margin-bottom: 1%; width: 40%;"> <!--[routerLink]="['/Search']"-->
         <i class="fa fa-search" aria-hidden="true"></i> Search
     </button>
     </form>    

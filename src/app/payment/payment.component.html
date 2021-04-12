@@ -2,34 +2,58 @@
 
     <div class="creditCardForm">
     <div class="heading">
-        <h1 style="font-family:Verdana, Geneva, Tahoma, sans-serif">Payment</h1>
+        <h1 style="font-family:Verdana, Geneva, Tahoma, sans-serif">Payment</h1>{{PaymentForm.valid}} {{PaymentForm.value | json}}
         <hr class="line">
         <div class="icons"> <img src="https://img.icons8.com/color/48/000000/visa.png" /> <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" /> <img src="https://img.icons8.com/color/48/000000/maestro.png" /> </div>
     </div>
     <div class="payment">
-        <form>
+        <form [formGroup]="PaymentForm" (ngSubmit)="onSubmit()" novalidate>
             <div class=payment-method>
                 <label for="cardtype">Select Card</label>
-                <select id="card">
+                <select id="cardtype" formControlName="CardType">
                 <option value="debit">Debit</option>
                 <option value="credit">Credit</option>
                 </select>
             </div>
-            <div class="form-group owner">
+            <div class="form-group owner ">
                 <label for="owner">Owner</label>
-                <input type="text" class="form-control" id="owner">
+                <input type="text" class="form-control" id="owner" formControlName="OwnerName">
+                <div class="errorEx" *ngIf="!OwnerName?.valid && (OwnerName?.dirty || OwnerName?.touched)">
+                    <div [hidden]="!OwnerName.errors.required">
+                        *Required
+                    </div>
+                    <div class="fn" [hidden]="!OwnerName.errors.pattern">
+                        Only Characters allowed
+                    </div>
+                </div>
             </div>
             <div class="form-group CVV">
                 <label for="cvv">CVV</label>
-                <input type="text" class="form-control" id="cvv"> 
+                <input type="password" class="form-control" id="cvv" formControlName="CVV">
+                <div class="errorEx" *ngIf="!CVV?.valid && (CVV?.dirty || CVV?.touched)">
+                    <div [hidden]="!CVV.errors.required">
+                        *Required
+                    </div>
+                    <div class="fn" [hidden]="!CVV.errors.pattern">
+                        4 digit PIN
+                    </div>
+                </div>
             </div>
             <div class="form-group" id="card-number-field">
                 <label for="cardNumber">Card Number</label>
-                <input type="text" class="form-control" id="cardNumber">
+                <input type="text" class="form-control" id="cardNumber" formControlName="cardNumber">
+                <div class="errorEx" *ngIf="!cardNumber?.valid && (cardNumber?.dirty || cardNumber?.touched)">
+                    <div [hidden]="!cardNumber.errors.required">
+                        *Required
+                    </div>
+                    <div class="fn" [hidden]="!cardNumber.errors.pattern">
+                        Invalid
+                    </div>
+                </div>
             </div>
             <div class="form-group" id="expiration-date"   placeholder="YY/MM">
                 <label>Expiration Date</label>
-                <select>
+                <select formControlName="expirationMonth">
                     <option value="01">January</option>
                     <option value="02">February </option>
                     <option value="03">March</option>
@@ -43,13 +67,13 @@
                     <option value="11">November</option>
                     <option value="12">December</option>
                 </select>
-                <select>
+                <select formControlName="expirationYear">
                     <option value="20"> 2021</option>
                     <option value="21"> 2022</option>
-                    <option value="20"> 2023</option>
-                    <option value="20"> 2024</option>
-                    <option value="20"> 2025</option>
-                    <option value="20"> 2026</option>
+                    <option value="22"> 2023</option>
+                    <option value="23"> 2024</option>
+                    <option value="24"> 2025</option>
+                    <option value="25"> 2026</option>
                 </select>
             </div>
             

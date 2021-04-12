@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-select-seats',
@@ -52,7 +53,19 @@ export class SelectSeatsComponent implements OnInit {
       }
     }
 
-  constructor() { }
+    proceedToSeats()
+    {
+      if(this.pickedSeats===this.maxSeats)
+      {
+        console.log(this.selectedSeats);
+        this.router.navigate(['/passengerDetails']);
+      }
+      else
+      {
+        alert("Please select all " +this.maxSeats + " seats")
+      }
+    }
+  constructor(private router: Router) { } 
 
   ngOnInit(): void {
   }

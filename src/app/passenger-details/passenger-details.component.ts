@@ -10,14 +10,14 @@ import { Router } from '@angular/router';
 export class PassengerDetailsComponent implements OnInit {
 
   PassengerForm = new FormGroup({
-    SeatNo: new FormControl('',[Validators.required]),
-    PassengerName: new FormControl('',[Validators.required,Validators.pattern("^[a-zA-Z]$")]),
-    Contact: new FormControl('',[Validators.required,Validators.maxLength(10),Validators.pattern("^[6789]{9}$")]),
+    SeatNo: new FormControl({value :'',  disabled: true},[Validators.required]),
+    PassengerName: new FormControl('',[Validators.required,Validators.pattern("^[a-zA-Z ]*$")]),
+    Contact: new FormControl('',[Validators.required, Validators.pattern("[789]{1}[0-9]{9}$")]),
     Gender: new FormControl('',[Validators.required]),
     Type: new FormControl('',[Validators.required]),
     DOB: new FormControl('',[Validators.required]),
     DocType: new FormControl('',[Validators.required]),
-    DocNo: new FormControl('',[Validators.required,Validators.pattern("^[a-zA-Z]$")])
+    DocNo: new FormControl('',[Validators.required,Validators.pattern("^[a-zA-Z0-9]*$")])
    })
 
   constructor(
@@ -27,10 +27,7 @@ export class PassengerDetailsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onSubmit(){
-      console.log(this.PassengerForm.value);
 
-  } 
   get SeatNo()
   {
     return this.PassengerForm.get('SeatNo');
@@ -60,10 +57,19 @@ get DocType()
 {
   return this.PassengerForm.get('DocType');
 }
-
 get DocNo()
 {
   return this.PassengerForm.get('DocNo');
 }
-
+onSubmit(){
+  if(this.PassengerForm.valid)
+  {
+    console.log(this.PassengerForm.value);
+    this.router.navigate(['/bookindDetails']);
+  }
+  else
+  {
+    alert("Invalid Entry");
+  }
+} 
 }
