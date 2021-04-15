@@ -1,0 +1,17 @@
+<div class="wrapper">
+    <div class="sidebar">
+        <h3 ><i class="fa fa-home" aria-hidden="true"></i> ADMIN</h3  >
+        <h5>Hii Admin</h5>
+        <ul>
+            <li><a routerLink="addflight">Add Flights</a></li>
+            <li><a routerLink="viewschedule">View Schedule</a></li> 
+            <li><a (click)="LogoutAdmin()">Logout</a></li> 
+        </ul> 
+    </div>
+
+    <div class="main_content"> 
+      <p class="h1 text-center mt-3"><b>FlyAce</b></p> 
+       <router-outlet></router-outlet>  
+    </div>
+</div> 
+

@@ -14,6 +14,10 @@ import { SelectSeatsComponent } from './select-seats/select-seats.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { ViewTicketComponent } from './view-ticket/view-ticket.component';
 import { YourTicketsComponent } from './your-tickets/your-tickets.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AdminViewscheduleComponent } from './admin-viewschedule/admin-viewschedule.component';
+import { AdminAddflightsComponent } from './admin-addflights/admin-addflights.component';
 
 
 const routes: Routes = [
@@ -30,7 +34,21 @@ const routes: Routes = [
   { path: 'tickets', component: YourTicketsComponent},
   { path: 'viewTicket', component: ViewTicketComponent},
   { path: 'userDetails', component: UserDetailsComponent},
-  { path: 'passengerDetails', component: PassengerDetailsComponent}
+  { path: 'passengerDetails', component: PassengerDetailsComponent},
+  { path: 'adminloginpage', component: AdminLoginComponent},
+  { path: 'adminloginpage/adminhome', component: AdminHomeComponent,
+  children:[
+    { 
+      path:"", component: AdminAddflightsComponent,
+    },
+    {
+        path:"viewschedule",component:AdminViewscheduleComponent,
+    },
+   {
+      path:"addflight",component:AdminAddflightsComponent,
+   },
+],
+}
 ];
 
 @NgModule({

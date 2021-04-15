@@ -18,6 +18,10 @@ import { YourTicketsComponent } from './your-tickets/your-tickets.component';
 import { ViewTicketComponent } from './view-ticket/view-ticket.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { PassengerDetailsComponent } from './passenger-details/passenger-details.component';
+import { AdminAddflightsComponent } from './admin-addflights/admin-addflights.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminViewscheduleComponent } from './admin-viewschedule/admin-viewschedule.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,11 @@ import { PassengerDetailsComponent } from './passenger-details/passenger-details
     YourTicketsComponent,
     ViewTicketComponent,
     UserDetailsComponent,
-    PassengerDetailsComponent
+    PassengerDetailsComponent,
+    AdminAddflightsComponent,
+    AdminHomeComponent,
+    AdminLoginComponent,
+    AdminViewscheduleComponent
   ],
   imports: [
     BrowserModule,
