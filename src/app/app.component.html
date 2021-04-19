@@ -18,7 +18,7 @@
             <a><i class="fa fa-linkedin w3-hover-opacity p-3" aria-hidden="true"></i></a>
         </div>
         <div class="col">
-            <a>Admin Login</a>
+            <a [routerLink]="['/adminlogin']" *ngIf="!loggedin()">Admin Login</a>
         </div>
     </div>
     <div class="row align-items-end" style="margin:0%; padding: 1%;">

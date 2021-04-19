@@ -3,7 +3,8 @@
     <h2 style="text-align: center;">A1005</h2>
     <hr style="background-color: rgb(255, 153, 0);"><br>
     <div class="row justify-content-center">
-      <article class="card"> 
+      <div *ngFor="ticket in Tickets">
+    <article class="card" *ngIf="ticket.Ticket_status==='booked'"> 
         <section class="date">
           <time datetime="23th feb">
             <span>23</span><span>feb</span>
@@ -46,7 +47,7 @@
       </article>
 
 
-      <article class="card">
+      <article class="card" *ngIf="ticket.Ticket_status==='booked'" style="font-style: oblique;">
         <section class="date">
           <time datetime="23th feb">
             <span>26</span><span>feb</span>
@@ -109,6 +110,6 @@
           </div>
         </section>
       </article>
-    
+    </div>
   </div>
 </section>

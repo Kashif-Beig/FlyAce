@@ -18,6 +18,12 @@ import { YourTicketsComponent } from './your-tickets/your-tickets.component';
 import { ViewTicketComponent } from './view-ticket/view-ticket.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { PassengerDetailsComponent } from './passenger-details/passenger-details.component';
+import { AdminAddFlightComponent } from './admin-add-flight/admin-add-flight.component';
+
+import {HttpClientModule} from '@angular/common/http';
+import { AdminViewScheduleComponent } from './admin-view-schedule/admin-view-schedule.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 @NgModule({
   declarations: [
@@ -35,12 +41,17 @@ import { PassengerDetailsComponent } from './passenger-details/passenger-details
     YourTicketsComponent,
     ViewTicketComponent,
     UserDetailsComponent,
-    PassengerDetailsComponent
+    PassengerDetailsComponent,
+    AdminAddFlightComponent,
+    AdminViewScheduleComponent,
+    AdminLoginComponent,
+    AdminHomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

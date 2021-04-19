@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from '../api.service';
+import { Flight } from '../flight';
+import { SharedServiceService } from '../shared-service.service';
 
 @Component({
   selector: 'app-select-seats',
@@ -65,9 +68,29 @@ export class SelectSeatsComponent implements OnInit {
         alert("Please select all " +this.maxSeats + " seats")
       }
     }
-  constructor(private router: Router) { } 
-
+  constructor(private router: Router, private sharedService : SharedServiceService, public apiService: ApiService) { } 
+    selectedFlight: Flight;
+    RselectedFlight: Flight;
   ngOnInit(): void {
+
+    this.sharedService.selectedFlight.subscribe((s)=>{
+      this.selectedFlight = s;
+    });
+
+    this.sharedService.RselectedFlight.subscribe((s)=>{
+      this.RselectedFlight = s;
+    });
+
+    this.apiService.getSeats(this.selectedFlight.Schedule_Id).subscribe((data : any)=>{
+      console.log(data);
+    }
+    );
+
+    this.apiService.getSeats(this.RselectedFlight.Schedule_Id).subscribe((data : any)=>{
+      console.log(data);
+    }
+    );
+
   }
 
 }

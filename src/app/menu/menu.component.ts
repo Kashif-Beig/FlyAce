@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -7,11 +8,6 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  logged:boolean= true;
-  logout()
-  {
-    this.logged = false;
-  }
   bookingForm = new FormGroup({
     from: new FormControl('', Validators.required),
     to: new FormControl('', Validators.required),
@@ -39,7 +35,22 @@ export class MenuComponent implements OnInit {
       alert("Invalid Entry");
     }
   }
-  constructor() { }
+
+  loggedin()
+  { 
+    //this.UserName=localStorage.getItem("UserName");
+    return localStorage.getItem("UserName");
+  } 
+
+  
+  Username=localStorage.getItem("UserName");
+  logout()
+  {
+    localStorage.clear();
+    this.rtr.navigate(["Login"]);
+  }
+
+  constructor(private rtr: Router) { }
 
   ngOnInit(): void {
   }

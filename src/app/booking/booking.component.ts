@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 
+import {SharedServiceService} from '../shared-service.service';
+
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
@@ -54,6 +56,11 @@ export class BookingComponent implements OnInit {
     if(this.bookingForm.valid)
     {
       console.log(this.bookingForm.value);
+      this.sharedService.from.next(this.from.value);
+      this.sharedService.to.next(this.to.value);
+      this.sharedService.trvdate.next(this.departDate.value);
+      this.sharedService.returndate.next(this.returnDate.value);
+      this.sharedService.tripType.next(this.tripType.value);
       alert("Searching");
       this.router.navigate(['/Search']);
     }
@@ -62,9 +69,10 @@ export class BookingComponent implements OnInit {
       alert("Invalid Entry");
     }
   }
-  constructor(private router: Router) { }
+  constructor(private router: Router, private sharedService : SharedServiceService) { }
 
   ngOnInit(): void {
+    
   }
 
 }

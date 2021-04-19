@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FlyaceAirline';
+  loggedin()
+  { 
+    //this.UserName=localStorage.getItem("UserName");
+    return localStorage.getItem("UserName");
+  } 
 }

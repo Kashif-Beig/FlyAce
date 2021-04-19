@@ -1,15 +1,62 @@
-<!-- <header style="background-color: rgb(58, 37, 102);padding: 1%;">
-    <a routerLink=""><i class="fa fa-arrow-circle-left" style="color: white;font-size: 25px"> Back</i></a>
-</header> -->
-
-<form class="form" action="" method="post">
+<form class="form"  [formGroup]="RegisterForm" (ngSubmit)="onSubmit()" novalidate>
     <br><h1 class="title" style="margin-top: 0.5%;">Registration</h1>
-    <input type="text" class="inputs" name="firstname" placeholder="Firstname" required />
-    <input type="text" class="inputs" name="lastname" placeholder="Lastname" required />
-    <input type="text" class="inputs" name="email" placeholder="Email Adress">
-    <input type="password" class="inputs" name="password" placeholder="Password">
-    <input type="number" class="inputs" name="phonenumber" placeholder="Phone Number" required />
-    <input type="submit" name="submit" value="Register" class="submitbutton">
-    <p class="link">Already have an account? <a routerLink="../">Login here</a></p>
-</form>
+        <input for="FirstName" class="inputs" type="text" name="FirstName" id="FirstName" formControlName="FirstName" placeholder="Enter First Name">
+        <div class="validcheck" *ngIf="!FirstName?.valid && (FirstName?.dirty || FirstName?.touched)">
+            <div class="alert alert-danger" [hidden]="!FirstName.errors.required">
+                First name is required
+            </div>
+            </div>
 
+        <input for="LastName" class="inputs" type="text" name="LastName" id="LastName" formControlName="LastName" placeholder="Enter Last Name">
+        <div class="validcheck" *ngIf="!LastName?.valid && (LastName?.dirty || LastName?.touched)">
+            <div  class="alert alert-danger" [hidden]=" !LastName.errors.required">
+                last name is required
+            </div>
+            </div>
+
+        <input for="email" class="inputs" type="email" id="email" name="email" formControlName="email" placeholder="Enter email">
+        <div class="validcheck" *ngIf="!email.valid && (email.dirty ||email.touched)">
+            <div  class="alert alert-danger" [hidden]="!email.errors.required">
+                email is required
+            </div>
+            <div  class="alert alert-danger" [hidden]="!email.errors.email">
+                invalid email id
+            </div>
+             </div>
+            
+        <input for="password" class="inputs" type="password" name="password" id="password" formControlName="password"
+            placeholder="Enter password">
+          <div class="alert alert-danger" *ngIf="!password.valid && (password.dirty ||password.touched)" class="alert alert-danger">
+            <div [hidden]="!password.errors.pattern">
+              Password should contain atleast 8 characters, Lower Case, Uppercase, Numbers and Special characters($@!%*?&)
+            </div>
+            <div class="alert alert-danger" [hidden]="!password.errors.maxLength">
+              Max length allowed is {{password.errors.maxlength?.requiredLength}} 
+            </div>
+            <div class="alert alert-danger" [hidden]="!password.errors.required">
+              Password is required
+            </div>
+          </div>
+
+        <input for="Phoneno" class="inputs" type="tel" name="Phoneno" id="phone_number" pattern="[6789]/d{9}$"  formControlName="Phoneno" placeholder="Enter Phoneno Number">
+        <div class="validcheck" *ngIf="!Phoneno?.valid && (Phoneno?.dirty || Phoneno?.touched)">
+            <div  class="alert alert-danger" [hidden]="!Phoneno.errors.required">
+              Phone Number is required
+           </div>
+           <div  class="alert alert-danger" [hidden]="!Phoneno.errors.Phoneno">
+            invalid Phone Number
+        </div>
+        </div>
+
+        <input for="DOB" class="inputs" type="date" name="DOB" id="DOB" formControlName="DOB" placeholder="Enter DOB">
+        <div class="validcheck" *ngIf="!DOB?.valid && (DOB?.dirty || DOB?.touched)">
+            <div  class="alert alert-danger" [hidden]="!DOB.errors.required">
+               DOB is required
+            </div>
+        </div><br>
+      
+    <button type="submit" name="submit" class="submitbutton"> Register <i class="fa fa-chevron-circle-right fa-lg" aria-hidden="true"></i> 
+    </button>
+    <p class="link">Already have an account? <a routerLink="../">Login here</a></p>
+
+</form>
