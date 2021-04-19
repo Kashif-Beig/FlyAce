@@ -6,13 +6,15 @@
           <div class="form-row mb-2"> 
             <div class="col">
               <p class="h5 text-left text-white ">Plane Name:</p>
-              <input type="text" id="planename" class="form-control " placeholder="Enter Plane Name" name="planename" formControlName="plane_name">
-            </div> 
-            
-            <div class="col">
-              <!-- Last name -->
-              <p class="h5 text-left text-white ">Total Seats:</p>
-              <input type="text" id="seats" class="form-control " placeholder="Enter Total Seats" name="seats" formControlName="no_seats">
+              <select id="planename"  class="form-control " placeholder="Enter Plane Name" n formControlName="plane_name" >
+                <option value="P1">Titanic</option>
+                <option value="P2">Rocky</option>
+                <option value="P3">Astroworld</option>
+                <option value="P4">HeliCarrier</option>
+                <option value="P5">Q-Ship</option>
+                <option value="P6">Jericho</option>
+                <option value="P6">Asgard</option>
+              </select>
             </div> 
           </div> 
           
@@ -54,9 +56,19 @@
   
           <div class="row mb-2 mt-4  text-left"> 
             <div class="col">
-             <input type="text" class="form-control" formControlName="day" />
+              <p class="h5 text-left text-white ">Day:</p>
+              <select id="days" class="form-control" formControlName="day">
+               <option value="1">Sunday</option>
+               <option value="2">Monday</option>
+               <option value="3">Tuesday</option>
+               <option value="4">Wednesday</option>
+               <option value="5">Thursday</option>
+               <option value="6">Friday</option>
+               <option value="7">Saturday</option>
+             </select>
             </div> 
             <div class="col">
+              <p class="h5 text-left text-white ">Number of Weeks:</p>
               <input type="number" class="form-control" formControlName="no_weeks" />
             </div>
         </div> 

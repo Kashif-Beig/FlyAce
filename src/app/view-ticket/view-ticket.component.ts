@@ -22,7 +22,7 @@ export class ViewTicketComponent implements OnInit {
      (data:Ticket[])=>
      { 
        this.Tickets=data;
-       console.log(this.Tickets);
+       console.log(data);
      }
      );
   }

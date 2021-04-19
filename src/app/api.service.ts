@@ -8,6 +8,8 @@ import { Flight } from './flight';
 import {Registers} from './registers';
 import {Logins} from './registers';
 import {Ticket} from './ticket';
+import {Seat} from './seat';
+import {CardInputs} from './card-inputs';
 @Injectable({
   providedIn: 'root'
 })
@@ -50,8 +52,12 @@ gettickets(email):Observable<Ticket[]>{
   return this.httpClient.get<Ticket[]>(this.apiServer + '/Tickets?email='+ email)
 }
 
-getSeats(scheduleId):Observable<any>{
-  return this.httpClient.get<any>(this.apiServer + '/Search?scheduleId=' + scheduleId)
+getSeats(scheduleId):Observable<Array<Seat[]>>{
+  return this.httpClient.get<Array<Seat[]>>(this.apiServer + '/Search?scheduleId=' + scheduleId)
+}
+
+passengerandpayment(card): Observable<CardInputs>{
+  return this.httpClient.post<CardInputs>(this.apiServer + '/Payment/'  , JSON.stringify(card)  ,this.httpOptions)
 }
 
 }

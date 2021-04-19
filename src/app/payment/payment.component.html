@@ -10,19 +10,19 @@
         <form [formGroup]="PaymentForm" (ngSubmit)="onSubmit()" novalidate>
             <div class=payment-method>
                 <label for="cardtype">Select Card</label>
-                <select id="cardtype" formControlName="CardType">
+                <select id="cardtype" formControlName="Card_Type">
                 <option value="debit">Debit</option>
                 <option value="credit">Credit</option>
                 </select>
             </div>
             <div class="form-group owner ">
                 <label for="owner">Owner</label>
-                <input type="text" class="form-control" id="owner" formControlName="OwnerName">
-                <div class="errorEx" *ngIf="!OwnerName?.valid && (OwnerName?.dirty || OwnerName?.touched)">
-                    <div [hidden]="!OwnerName.errors.required">
+                <input type="text" class="form-control" id="owner" formControlName="Card_HolderName">
+                <div class="errorEx" *ngIf="!Card_HolderName?.valid && (Card_HolderName?.dirty || Card_HolderName?.touched)">
+                    <div [hidden]="!Card_HolderName.errors.required">
                         *Required
                     </div>
-                    <div class="fn" [hidden]="!OwnerName.errors.pattern">
+                    <div class="fn" [hidden]="!Card_HolderName.errors.pattern">
                         Only Characters allowed
                     </div>
                 </div>
@@ -41,40 +41,19 @@
             </div>
             <div class="form-group" id="card-number-field">
                 <label for="cardNumber">Card Number</label>
-                <input type="text" class="form-control" id="cardNumber" formControlName="cardNumber">
-                <div class="errorEx" *ngIf="!cardNumber?.valid && (cardNumber?.dirty || cardNumber?.touched)">
-                    <div [hidden]="!cardNumber.errors.required">
+                <input type="text" class="form-control" id="cardNumber" formControlName="Card_No">
+                <div class="errorEx" *ngIf="!Card_No?.valid && (Card_No?.dirty || Card_No?.touched)">
+                    <div [hidden]="!Card_No.errors.required">
                         *Required
                     </div>
-                    <div class="fn" [hidden]="!cardNumber.errors.pattern">
+                    <div class="fn" [hidden]="!Card_No.errors.pattern">
                         Invalid
                     </div>
                 </div>
             </div>
-            <div class="form-group" id="expiration-date"   placeholder="YY/MM">
-                <label>Expiration Date</label>
-                <select formControlName="expirationMonth">
-                    <option value="01">January</option>
-                    <option value="02">February </option>
-                    <option value="03">March</option>
-                    <option value="04">April</option>
-                    <option value="05">May</option>
-                    <option value="06">June</option>
-                    <option value="07">July</option>
-                    <option value="08">August</option>
-                    <option value="09">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
-                </select>
-                <select formControlName="expirationYear">
-                    <option value="20"> 2021</option>
-                    <option value="21"> 2022</option>
-                    <option value="22"> 2023</option>
-                    <option value="23"> 2024</option>
-                    <option value="24"> 2025</option>
-                    <option value="25"> 2026</option>
-                </select>
+            <div class="form-group owner">
+                <label for="owner">Expiry Date</label>
+                <input type="text" class="form-control" placeholder="YY/MM/DD" formControlName="Expires">
             </div>
             
             <div class="form-group" id="pay-now">

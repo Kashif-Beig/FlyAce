@@ -24,6 +24,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { AdminViewScheduleComponent } from './admin-view-schedule/admin-view-schedule.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { TryComponent } from './try/try.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
     AdminViewScheduleComponent,
     AdminLoginComponent,
     AdminHomeComponent,
+    TryComponent,
   ],
   imports: [
     BrowserModule,

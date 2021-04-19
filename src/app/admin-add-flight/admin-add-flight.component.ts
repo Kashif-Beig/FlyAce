@@ -61,7 +61,8 @@ export class AdminAddFlightComponent implements OnInit {
 
   onSubmit() {
     this.apiservice.addFlight(this.addflightsForm.value).subscribe(res =>{
-      console.log(res.toString())
+      console.log(res.toString());
+      alert("Flight Added!");
     })
     console.log(this.addflightsForm.value); 
   } 

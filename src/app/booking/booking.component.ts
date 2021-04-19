@@ -61,6 +61,7 @@ export class BookingComponent implements OnInit {
       this.sharedService.trvdate.next(this.departDate.value);
       this.sharedService.returndate.next(this.returnDate.value);
       this.sharedService.tripType.next(this.tripType.value);
+      this.sharedService.noPassengers.next(this.passengers.value);
       alert("Searching");
       this.router.navigate(['/Search']);
     }
