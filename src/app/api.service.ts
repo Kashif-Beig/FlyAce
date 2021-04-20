@@ -10,6 +10,8 @@ import {Logins} from './registers';
 import {Ticket} from './ticket';
 import {Seat} from './seat';
 import {CardInputs} from './card-inputs';
+import {Profile} from './profile';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -43,8 +45,8 @@ register(registers): Observable<Registers> {
     return this.httpClient.post<Registers>(this.apiServer + '/register/', JSON.stringify(registers), this.httpOptions)
 }  
  
-loginuser(Loginuser): Observable<Registers> {
-  return this.httpClient.post<Registers>(this.apiServer + '/login/', JSON.stringify(Loginuser), this.httpOptions)
+loginuser(Loginuser): Observable<any> {
+  return this.httpClient.post<any>(this.apiServer + '/Login/', JSON.stringify(Loginuser), this.httpOptions)
 }
 
 gettickets(email):Observable<Ticket[]>{
@@ -59,5 +61,21 @@ getSeats(scheduleId):Observable<Array<Seat[]>>{
 passengerandpayment(card): Observable<CardInputs>{
   return this.httpClient.post<CardInputs>(this.apiServer + '/Payment/'  , JSON.stringify(card)  ,this.httpOptions)
 }
+
+cancelTicket(id, amount) : Observable<any>{
+  return this.httpClient.get<any>(this.apiServer + '/Payment?TicketId=' + id+'&refundamount='+amount)
+}
+
+  getProfile(email): Observable<Profile> {
+      return this.httpClient.get<Profile>(this.apiServer + '/Profile?email='+ email)
+    }
+
+    postEmail(emails): Observable<any> {
+      return this.httpClient.post<any>(this.apiServer + '/Subscription/', JSON.stringify(emails), this.httpOptions)  
+  }
+
+  postQuerry(querry): Observable<any> {
+    return this.httpClient.post<any>(this.apiServer + '/profile/', JSON.stringify(querry), this.httpOptions)
+  }
 
 }

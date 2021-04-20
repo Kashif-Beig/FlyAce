@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { ApiService } from '../api.service';
 
 import {SharedServiceService} from '../shared-service.service';
 
@@ -70,10 +71,21 @@ export class BookingComponent implements OnInit {
       alert("Invalid Entry");
     }
   }
-  constructor(private router: Router, private sharedService : SharedServiceService) { }
+//NewsLetter
+  emailForm = new FormGroup({
+    email: new FormControl('', [Validators.required]),
+  });
+
+  EmailSubmit()
+      {
+        this.apiService.postEmail(this.emailForm.value).subscribe(res => {
+          alert('Submited!')
+        });  
+      }
+
+  constructor(private router: Router, private sharedService : SharedServiceService, public apiService : ApiService) { }
 
   ngOnInit(): void {
-    
   }
 
 }

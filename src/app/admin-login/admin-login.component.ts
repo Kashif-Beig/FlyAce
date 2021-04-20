@@ -44,14 +44,16 @@ export class AdminLoginComponent implements OnInit {
     this.login(login);
   }
    login(loginUser:Registers){
+     if(loginUser.email==="admin@admin.com"){
    this.authService.loginuser(loginUser).subscribe(
      res=>{
        var succ=res;
-      if(succ.email=="admin@admin.com"&&succ.password=="admin")
+      if(succ)
      {
         localStorage.setItem("UserName",JSON.stringify (res.FirstName));  
         //alert("Login Sucessfull..!!");
         this.router.navigateByUrl('/adminHome');
+        localStorage.setItem("showNav", "false");
       }
        else
        {
@@ -60,5 +62,9 @@ export class AdminLoginComponent implements OnInit {
     }
    )
    }
+   else{
+     alert("You are not Admin!")
+   }
+  }
 
 }

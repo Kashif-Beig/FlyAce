@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { ApiService } from '../api.service';
+import {Profile} from '../profile';
 
 @Component({
   selector: 'app-menu',
@@ -8,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+  showNav: string;
   bookingForm = new FormGroup({
     from: new FormControl('', Validators.required),
     to: new FormControl('', Validators.required),
@@ -23,7 +26,7 @@ export class MenuComponent implements OnInit {
   returnDateDisEnable(){
     this.bookingForm.get('returnDate').disable() ;
   }
-
+ 
   onSubmit() {
     if(this.bookingForm.valid)
     {
@@ -50,9 +53,27 @@ export class MenuComponent implements OnInit {
     this.rtr.navigate(["Login"]);
   }
 
-  constructor(private rtr: Router) { }
+  constructor(private rtr: Router, public apiService : ApiService) { }
+  profile : Profile = new Profile();
 
   ngOnInit(): void {
+    this.showNav = localStorage.getItem('showNav');
+    console.log(this.showNav);
+
+    if(this.loggedin)
+    {
+      this.apiService.getProfile(localStorage.getItem('email'))
+      .subscribe
+       (
+       (data:Profile)=>
+       { 
+         this.profile=data;
+         console.log(this.profile);
+       }
+       );
+    }
+
   }
+
 
 }

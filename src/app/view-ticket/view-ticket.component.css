@@ -112,11 +112,11 @@ body
   color: #3C3C3C;
   font-size: 130%
 }
-
+/* 
 .row:last-child .card:last-of-type .card-cont h3
 {
   text-decoration: line-through
-}
+} */
 
 .card-cont > div
 {
@@ -202,4 +202,10 @@ body
 .btn
 {
   padding: 1%;
+}
+
+.cancelled
+{
+  background-color: lightgrey;
+  text-decoration: line-through;
 }

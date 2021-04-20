@@ -28,12 +28,16 @@ export class PaymentComponent implements OnInit {
       public UserApiService:ApiService,
       public sharedService:SharedServiceService
       ) { }
+      tripType = 0;
 
   ngOnInit(): void {
     this.sharedService.passengerinfo.subscribe(resu=>{
       this.passenger = resu;
       console.log(this.passenger);
-    })
+    });
+    this.sharedService.tripType.subscribe((fr)=>{
+      this.tripType = fr;
+    });
   }
 
   onSubmit(){
@@ -42,15 +46,36 @@ export class PaymentComponent implements OnInit {
    this.CardInfo=this.PaymentForm.value;
    this.CardInfo.TansactionType="ToBook";   
    this.CardInfo.amount=2500;
-   this.CardInfo.email="jeffb@gmail.com"
+   this.CardInfo.email= localStorage.getItem('email');
    this.sharedService.passengerinfo.subscribe(pas =>{
-     this.CardInfo.Passengers=pas;
+     this.CardInfo.passengersinfo = pas;
    });
-   this.UserApiService.passengerandpayment(this.CardInfo).subscribe(res =>{
-  console.log(this.CardInfo);
-        alert(res); 
-        this.router.navigateByUrl('tickets'); }); }
+
+
+
+        if(this.tripType==1)
+        {
+          
+          this.sharedService.Rpassengerinfo.subscribe(pas =>{
+            this.CardInfo.passengersinfo =  this.CardInfo.passengersinfo.concat(pas);
+            // console.log("hi");
+            console.log(this.CardInfo.passengersinfo);
+          });
+          // this.UserApiService.passengerandpayment(this.CardInfo).subscribe(res =>{
+          //   console.log(this.CardInfo);
+          //         alert(res); 
+          //         this.router.navigateByUrl('tickets'); }) ; 
+        }
+
+        this.UserApiService.passengerandpayment(this.CardInfo).subscribe(res =>{
+          console.log(this.CardInfo);
+                alert(res); 
+                this.router.navigateByUrl('tickets'); }) ; 
+
+
+  }
         else{alert("Invalid")}
+
       }
 
         get Card_No() {

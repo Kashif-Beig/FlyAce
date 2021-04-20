@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +10,10 @@ export class AdminHomeComponent implements OnInit {
 
   constructor(private rtr: Router) { }
 
+
   ngOnInit(): void {
+  }
+  ngAfterViewInit() : void {
   }
   LogoutAdmin()
   { 

@@ -5,9 +5,11 @@ import { AdminAddFlightComponent } from './admin-add-flight/admin-add-flight.com
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminViewScheduleComponent } from './admin-view-schedule/admin-view-schedule.component';
+import { AuthenticationGuard } from './authentication.guard';
 import { BookingDetailsComponent } from './booking-details/booking-details.component';
 import { BookingComponent } from './booking/booking.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { DealsComponent } from './deals/deals.component';
 import { LoginComponent } from './login/login.component';
 import { MenuComponent } from './menu/menu.component';
 import { PassengerDetailsComponent } from './passenger-details/passenger-details.component';
@@ -28,13 +30,14 @@ const routes: Routes = [
   { path: 'About', component: AboutUsComponent},
   { path: 'Contact', component: ContactUsComponent},
   { path: 'Search', component: SearchResultComponent},
-  { path: 'SelectSeats', component: SelectSeatsComponent},
-  { path: 'bookindDetails', component: BookingDetailsComponent},
-  { path: 'payment', component: PaymentComponent},
-  { path: 'tickets', component:  ViewTicketComponent},
-  { path: 'viewTicket', component: ViewTicketComponent},
-  { path: 'userDetails', component: UserDetailsComponent},
-  { path: 'passengerDetails', component: PassengerDetailsComponent},
+  { path: 'SelectSeats', component: SelectSeatsComponent , canActivate:[AuthenticationGuard]},
+  { path: 'bookindDetails', component: BookingDetailsComponent , canActivate:[AuthenticationGuard]},
+  { path: 'payment', component: PaymentComponent , canActivate:[AuthenticationGuard]},
+  { path: 'tickets', component:  ViewTicketComponent , canActivate:[AuthenticationGuard]},
+  { path: 'viewTicket', component: ViewTicketComponent , canActivate:[AuthenticationGuard]},
+  { path: 'userDetails', component: UserDetailsComponent , canActivate:[AuthenticationGuard]},
+  { path: 'passengerDetails', component: PassengerDetailsComponent , canActivate:[AuthenticationGuard]},
+  { path: 'deals', component: DealsComponent , canActivate:[AuthenticationGuard]},
   { path: 'adminlogin', component: AdminLoginComponent},
   { path: 'adminHome', component: AdminHomeComponent,
   children:[

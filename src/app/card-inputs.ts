@@ -1,7 +1,7 @@
 import { Time } from "@angular/common"
 
 export class CardInputs {
-    Passengers : PassengersDetail[]
+    passengersinfo : PassengersDetail[]
     Card_No: Number
     Card_HolderName: string
     Card_Type: string

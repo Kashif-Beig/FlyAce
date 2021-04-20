@@ -13,17 +13,19 @@ import { SharedServiceService } from '../shared-service.service';
 })
 export class PassengerDetailsComponent implements OnInit {
   Passengers : PassengersDetail[] = new Array;
+  RPassengers : PassengersDetail[] = new Array;
   selectedFlight: Flight;
+  RselectedFlight: Flight;
 
   PassengerForm = new FormGroup({
-    SeatNo: new FormControl({value :'',  disabled: true},[Validators.required]),
-    PassengerName: new FormControl('',[Validators.required,Validators.pattern("^[a-zA-Z ]*$")]),
+    seatNo: new FormControl({value :'',  disabled: true},[Validators.required]),
+    passenger_name: new FormControl('',[Validators.required,Validators.pattern("^[a-zA-Z ]*$")]),
     Contact: new FormControl('',[Validators.required, Validators.pattern("[789]{1}[0-9]{9}$")]),
     Gender: new FormControl('',[Validators.required]),
-    PassengerType: new FormControl('',[Validators.required]),
+    Passenger_type: new FormControl('',[Validators.required]),
     DOB: new FormControl('',[Validators.required]),
-    DocType: new FormControl('',[Validators.required]),
-    DocNo: new FormControl('',[Validators.required,Validators.pattern("^[a-zA-Z0-9]*$")])
+    document_type: new FormControl('',[Validators.required]),
+    document_no: new FormControl('',[Validators.required,Validators.pattern("^[a-zA-Z0-9]*$")])
    })
 
   constructor(
@@ -66,15 +68,19 @@ export class PassengerDetailsComponent implements OnInit {
       this.selectedFlight = s;
     });
 
+    this.sharedService.RselectedFlight.subscribe((s)=>{
+      this.RselectedFlight = s;
+    });
+
   }
 
-  get SeatNo()
+  get seatNo()
   {
-    return this.PassengerForm.get('SeatNo');
+    return this.PassengerForm.get('seatNo');
   }
-  get PassengerName()
+  get passenger_name()
 {
-  return this.PassengerForm.get('PassengerName');
+  return this.PassengerForm.get('passenger_name');
 }
 get Contact()
 {
@@ -85,21 +91,21 @@ get Gender()
 {
   return this.PassengerForm.get('Gender');
 }
-get PassengerType()
+get Passenger_type()
 {
-  return this.PassengerForm.get('PassengerType');
+  return this.PassengerForm.get('Passenger_type');
 }
 get DOB()
 {
   return this.PassengerForm.get('DOB');
 }
-get DocType()
+get document_type()
 {
-  return this.PassengerForm.get('DocType');
+  return this.PassengerForm.get('document_type');
 }
-get DocNo()
+get document_no()
 {
-  return this.PassengerForm.get('DocNo');
+  return this.PassengerForm.get('document_no');
 }
 // onSubmit(){
 //   if(this.PassengerForm.valid)
@@ -120,10 +126,33 @@ onSubmit(s : string, i : number ){
     this.Passengers[i].seatNo = s;
     this.Passengers[i].Schedule_Id = this.selectedFlight.Schedule_Id;
     console.log(this.Passengers);
-    if(this.Passengers.length === 3)
+    if(this.Passengers.length === this.seatNos.length)
     {
       this.sharedService.passengerinfo.next(this.Passengers);
-      this.router.navigate(['/payment']);
+      if(this.tripType==0)
+    {
+      this.router.navigate(['/bookindDetails'])
+    }
+    }
+} 
+else
+  {
+    alert("Invalid Entry");
+  }
+
+}
+
+RonSubmit(s : string, i : number ){
+  if(this.PassengerForm.valid)
+  {
+    this.RPassengers.push(this.PassengerForm.value)
+    this.RPassengers[i].seatNo = s;
+    this.RPassengers[i].Schedule_Id = this.RselectedFlight.Schedule_Id;
+    console.log(this.RPassengers);
+    if(this.RPassengers.length === this.RseatNos.length)
+    {
+      this.sharedService.Rpassengerinfo.next(this.RPassengers);
+      this.router.navigate(['/bookindDetails']);
     }
 } 
 else

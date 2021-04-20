@@ -25,6 +25,7 @@ import { AdminViewScheduleComponent } from './admin-view-schedule/admin-view-sch
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { TryComponent } from './try/try.component';
+import { DealsComponent } from './deals/deals.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { TryComponent } from './try/try.component';
     AdminLoginComponent,
     AdminHomeComponent,
     TryComponent,
+    DealsComponent,
   ],
   imports: [
     BrowserModule,

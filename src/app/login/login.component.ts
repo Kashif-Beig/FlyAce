@@ -41,8 +41,8 @@ this.authService.loginuser(loginUser).subscribe(
     var succ=res;
     if(succ)
     {
-      localStorage.setItem("UserName",res.FirstName); 
-      localStorage.setItem("email",res.email); 
+      localStorage.setItem("UserName",succ); 
+      localStorage.setItem("email",succ); 
       alert("Login Sucessfull..!!");
       this.router.navigate(['']);
     }

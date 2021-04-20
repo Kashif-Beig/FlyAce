@@ -132,15 +132,17 @@
 </div>
 <!-- NEWS LETTER -->
 <div class="container news">
-<div class="newsLetter" >
-    <div class="">
-      <h2>Get the best offers first!</h2>
-      <p>Join our newsletter.</p>
-      <label>E-mail</label>
-      <div class="input-group col-6" style="padding-left: 0%;">
-      <input class="form-control" type="text" placeholder="Your Email address">
-      <button type="button" class="btn btn-danger">Subscribe</button>
+    <div class="newsLetter" >
+        <div class="">
+          <h2>Get the best offers first!</h2>
+          <p>Join our newsletter.</p>
+          <label>E-mail</label>
+          <div class="input-group col-6" style="padding-left: 0%;">
+          <form  [formGroup]="emailForm" (ngSubmit)="EmailSubmit()" novalidate>
+          <input class="text" type="text" placeholder="Your Email address" id="email" name="email" formControlName="email">
+          <button type="submit" class="btn btn-danger">Subscribe</button>
+        </form>
+        </div>
+        </div>
+      </div>
     </div>
-    </div>
-  </div>
-</div>

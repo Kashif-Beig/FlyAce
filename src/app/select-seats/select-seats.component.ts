@@ -50,14 +50,14 @@ export class SelectSeatsComponent implements OnInit {
       if(seat.check)
       {
         this.selectedSeats.splice(this.selectedSeats.indexOf((seat.row+seat.letter)), 1);
-        // this.selectedSeatsClass.splice(this.selectedSeatsClass.indexOf(seat.seatClass) ,1);
+        this.selectedSeatsClass.splice(this.selectedSeatsClass.indexOf(seat.seatClass) ,1);
         seat.check=false;
         this.pickedSeats--;
       }
       else if(!seat.check && this.maxSeats> this.pickedSeats && seat.isAvailable)
       {
         this.selectedSeats.push(seat.row + seat.letter);
-        // this.selectedSeatsClass.push(seat.seatClass);
+        this.selectedSeatsClass.push(seat.seatClass);
         seat.check=true;
         this.pickedSeats++;
       }
@@ -70,9 +70,9 @@ export class SelectSeatsComponent implements OnInit {
       {
         console.log(this.selectedSeats);
         this.sharedService.selectedSeatNos.next(this.selectedSeats);
-        // this.sharedService.selectedSeatClass.next(this.selectedSeatsClass);
+        this.sharedService.selectedSeatClass.next(this.selectedSeatsClass);
         this.sharedService.RselectedSeatNos.next(this.RselectedSeats);
-        // this.sharedService.RselectedSeatClass.next(this.RselectedSeatsClass);
+        this.sharedService.RselectedSeatClass.next(this.RselectedSeatsClass);
         this.router.navigate(['/passengerDetails']);
       }
       else
