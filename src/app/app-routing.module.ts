@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'Search', component: SearchResultComponent},
   { path: 'SelectSeats', component: SelectSeatsComponent , canActivate:[AuthenticationGuard]},
   { path: 'bookindDetails', component: BookingDetailsComponent , canActivate:[AuthenticationGuard]},
-  { path: 'payment', component: PaymentComponent , canActivate:[AuthenticationGuard]},
+  { path: 'payment', component: PaymentComponent },  //canActivate:[AuthenticationGuard]
   { path: 'tickets', component:  ViewTicketComponent , canActivate:[AuthenticationGuard]},
   { path: 'viewTicket', component: ViewTicketComponent , canActivate:[AuthenticationGuard]},
   { path: 'userDetails', component: UserDetailsComponent , canActivate:[AuthenticationGuard]},

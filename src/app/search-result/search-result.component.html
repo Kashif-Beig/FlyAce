@@ -47,8 +47,9 @@
                         <span style="font-size: 12px;">Seats Available</span>
                     </div>
                     <div class="col">
-                        <button class="bookbutton" (click)="selectflight(flight)">
-                        Select
+                        <button [ngStyle]="{'background-color': flight.selected? 'gray': 'rgb(103, 104, 177)'}"  [disabled]="flight.selected" class="bookbutton" (click)="selectflight(flight)">
+                        <span *ngIf="!flight.selected">Select</span>
+                        <span *ngIf="flight.selected">Selected</span>
                     </button>
                     </div>
                 </div>
@@ -112,8 +113,9 @@
                     <span style="font-size: 12px;">Seats Available</span>
                 </div>
                 <div class="col">
-                    <button class="bookbutton" (click)="Rselectflight(flight)">
-                    Select
+                    <button class="bookbutton" [ngStyle]="{'background-color': flight.selected? 'gray': 'rgb(103, 104, 177)'}"  [disabled]="flight.selected" (click)="Rselectflight(flight)">
+                        <span *ngIf="!flight.selected">Select</span>
+                        <span *ngIf="flight.selected">Selected</span>
                 </button>
                 </div>
             </div>

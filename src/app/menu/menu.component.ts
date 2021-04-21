@@ -38,10 +38,10 @@ export class MenuComponent implements OnInit {
       alert("Invalid Entry");
     }
   }
-
+  UserName : string;
   loggedin()
   { 
-    //this.UserName=localStorage.getItem("UserName");
+    this.UserName=localStorage.getItem("UserName");
     return localStorage.getItem("UserName");
   } 
 
@@ -60,18 +60,18 @@ export class MenuComponent implements OnInit {
     this.showNav = localStorage.getItem('showNav');
     console.log(this.showNav);
 
-    if(this.loggedin)
-    {
-      this.apiService.getProfile(localStorage.getItem('email'))
-      .subscribe
-       (
-       (data:Profile)=>
-       { 
-         this.profile=data;
-         console.log(this.profile);
-       }
-       );
-    }
+    // if(this.loggedin)
+    // {
+    //   this.apiService.getProfile(localStorage.getItem('email'))
+    //   .subscribe
+    //    (
+    //    (data:Profile)=>
+    //    { 
+    //      this.profile=data;
+    //      console.log(this.profile);
+    //    }
+    //    );
+    // }
 
   }
 

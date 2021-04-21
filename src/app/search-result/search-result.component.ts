@@ -35,17 +35,33 @@ export class SearchResultComponent implements OnInit {
   selected :boolean = false;
   Rselected :boolean = false;
   totalAmount: number =0;
-  selectflight(flight)
+  selectflight(flight : Flight)
   {
     this.selected = true;
+    if(flight.selected)
+    {
+      // this.flights[this.flights.indexOf(flight)]
+    }
+  else{
+    this.selected =true;
+    flight.selected = true;
     this.selectedFlight = flight;
     this.totalAmount = this.totalAmount + this.selectedFlight.Price_E;
+  }
   }
   Rselectflight(flight)
   {
     this.Rselected = true;
+    if(flight.selected)
+    {
+
+    }
+    else{
+      this.selected =true;
+      flight.selected = true;
     this.RselectedFlight = flight;
     this.totalAmount = this.totalAmount + this.RselectedFlight.Price_E;
+    }
   }
 
   constructor(private sharedService :SharedServiceService, public apiService : ApiService) { }

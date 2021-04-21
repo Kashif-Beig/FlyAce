@@ -12,7 +12,7 @@ export class AdminAddFlightComponent implements OnInit {
 
   addflightsForm = new FormGroup({
     plane_name: new FormControl('',[Validators.required]),
-    no_seats: new FormControl('',[Validators.required]),
+    no_seats: new FormControl(20,[Validators.required]),
     source: new FormControl('',[Validators.required]),
     destination: new FormControl('',[Validators.required]),
     dept_time: new FormControl('',[Validators.required]),
@@ -20,7 +20,7 @@ export class AdminAddFlightComponent implements OnInit {
     price_B: new FormControl('',[Validators.required]),
     price_E: new FormControl('',[Validators.required]), 
     day:new FormControl('',[Validators.required]),
-    no_weeks: new FormControl(0,[Validators.required])
+    no_weeks: new FormControl(1,[Validators.required])
   }) 
 
   checkCheckBoxvalue(event:any){

@@ -14,12 +14,11 @@ export class PaymentComponent implements OnInit {
   passenger: any;
   CardInfo : CardInputs;
   PaymentForm = new FormGroup({
-    Card_No: new FormControl('',[Validators.required]),
+    Card_No: new FormControl('',[Validators.required, Validators.maxLength(12),Validators.minLength(12)]),
     Card_HolderName: new FormControl('',[Validators.required]),
     Card_Type: new FormControl('',[Validators.required]),
-    CVV: new FormControl('',[Validators.required]),
+    CVV: new FormControl('',[Validators.required,Validators.maxLength(4),Validators.minLength(4)]),
     Expires: new FormControl('',[Validators.required]),
-
   });
     
     constructor(

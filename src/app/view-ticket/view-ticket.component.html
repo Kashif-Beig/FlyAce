@@ -5,24 +5,25 @@
     <div class="row justify-content-center">
       <div *ngFor="let ticket of Tickets">
     <article class="card"  [ngClass]="{'cancelled':ticket.Ticket_status==='canceled'}"> 
-        <section class="date">
-          <time datetime={{ticket.Travel_Date}}>
-            <!-- <span>{{ticket.Travel_Date}}</span> -->
-          </time>
-        </section>
+          <section class="date">
+            <time datetime={{ticket.Travel_Date}}>
+              <!-- <span>{{ticket.Travel_Date}}</span> -->
+            </time>
+          </section>
         <section class="card-cont">
           <small>Flight ID: {{ticket.Schedule_Id}}</small>
+          <small> Booked On :{{ticket.booking_time | date:'shortDate'}}</small>
           <h3>{{ticket.Source}} To {{ticket.Destination}}</h3>
           <div class="even-info">
             <i class="fa fa-user"></i>
             <p>
-             Passenger Name : {{ticket.passenger_name}}
+             Passenger Name : {{ticket.passenger_name}} ({{ticket.passenger_type}})
             </p>
           </div>
           <div class="even-date">
            <i class="fa fa-calendar"></i>
            <time>
-             <span>{{ticket.Travel_Date}}</span>
+             <span> {{ticket.Travel_Date | date: 'shortDate'}}</span>
              <span>{{ticket.Departure_Time}}to {{ticket.Arrival_Time}}</span>
            </time>
           </div>

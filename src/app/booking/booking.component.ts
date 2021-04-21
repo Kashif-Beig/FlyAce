@@ -15,9 +15,9 @@ export class BookingComponent implements OnInit {
   bookingForm = new FormGroup({
     from: new FormControl('', Validators.required),
     to: new FormControl('', Validators.required),
-    departDate: new FormControl(Date, Validators.required),
+    departDate: new FormControl('', Validators.required),
     returnDate: new FormControl({value: '', disabled: true}, Validators.required),
-    passengers: new FormControl(Number,[Validators.required, Validators.min(1)]),
+    passengers: new FormControl(1,[Validators.required, Validators.min(1)]),
     tripType: new  FormControl(0)
   });
   //to enable/disable returnDate based on checkbox

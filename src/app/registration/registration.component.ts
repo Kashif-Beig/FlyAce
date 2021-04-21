@@ -11,11 +11,11 @@ import { ApiService } from '../api.service';
 })
 export class RegistrationComponent implements OnInit {
   RegisterForm = new FormGroup({
-    FirstName: new FormControl('',[Validators.required]),
-    LastName: new FormControl('',[Validators.required]),
+    FirstName: new FormControl('',[Validators.required,Validators.pattern("^[a-zA-Z]*$")]),
+    LastName: new FormControl('',[Validators.required,Validators.pattern("^[a-zA-Z]*$")]),
     email: new FormControl('',[Validators.required,Validators.email]),
-    password: new FormControl('',[Validators.required]),
-    Phoneno: new FormControl('',[Validators.required]),
+    password: new FormControl('',[Validators.required, Validators.maxLength(15),Validators.pattern('^[A-Za-z\d$@$!%*?&].{8,}')]),
+    Phoneno: new FormControl('',[Validators.required, Validators.pattern("[789]{1}[0-9]{9}$")]),
     DOB: new FormControl('',[Validators.required]),
     
    }) 

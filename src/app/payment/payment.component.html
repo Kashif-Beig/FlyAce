@@ -29,14 +29,17 @@
             </div>
             <div class="form-group CVV">
                 <label for="cvv">CVV</label>
-                <input type="password" class="form-control" id="cvv" formControlName="CVV">
+                <input type="password" class="form-control" id="CVV" formControlName="CVV">
                 <div class="errorEx" *ngIf="!CVV?.valid && (CVV?.dirty || CVV?.touched)">
                     <div [hidden]="!CVV.errors.required">
                         *Required
                     </div>
-                    <div class="fn" [hidden]="!CVV.errors.pattern">
-                        4 digit PIN
+                    <div class="fn" [hidden]="CVV.errors.maxLength"> 
+                        Maximum length allowed is 4 
                     </div>
+                    <div class="fn" [hidden]="CVV.errors.minLength"> 
+                        Minimum length allowed is 4 
+                </div>
                 </div>
             </div>
             <div class="form-group" id="card-number-field">
