@@ -45,6 +45,7 @@ export class SelectSeatsComponent implements OnInit {
   pickedSeats:number = 0;
   from:string;
   to:string;
+  seats : Seat[] = new Array();
     pickSeat(seat:Seat)
     {
       if(seat.check)
@@ -52,6 +53,7 @@ export class SelectSeatsComponent implements OnInit {
         this.selectedSeats.splice(this.selectedSeats.indexOf((seat.row+seat.letter)), 1);
         this.selectedSeatsClass.splice(this.selectedSeatsClass.indexOf(seat.seatClass) ,1);
         seat.check=false;
+        this.seats.splice(this.seats.indexOf((seat)), 1);
         this.pickedSeats--;
       }
       else if(!seat.check && this.maxSeats> this.pickedSeats && seat.isAvailable)
@@ -59,6 +61,7 @@ export class SelectSeatsComponent implements OnInit {
         this.selectedSeats.push(seat.row + seat.letter);
         this.selectedSeatsClass.push(seat.seatClass);
         seat.check=true;
+        this.seats.push(seat);
         this.pickedSeats++;
       }
     }
@@ -71,8 +74,10 @@ export class SelectSeatsComponent implements OnInit {
         console.log(this.selectedSeats);
         this.sharedService.selectedSeatNos.next(this.selectedSeats);
         this.sharedService.selectedSeatClass.next(this.selectedSeatsClass);
+        this.sharedService.seats.next(this.seats);
         this.sharedService.RselectedSeatNos.next(this.RselectedSeats);
         this.sharedService.RselectedSeatClass.next(this.RselectedSeatsClass);
+        this.sharedService.Rseats.next(this.Rseats);
         this.router.navigate(['/passengerDetails']);
       }
       else
@@ -91,6 +96,7 @@ export class SelectSeatsComponent implements OnInit {
     RselectedSeatsClass:string[] = new Array();
     RmaxSeats:number =0;
     RpickedSeats:number = 0;
+    Rseats: Seat[] = new Array();
     RpickSeat(seat:Seat)
     {
       if(seat.check)
@@ -98,6 +104,7 @@ export class SelectSeatsComponent implements OnInit {
         this.RselectedSeats.splice(this.RselectedSeats.indexOf((seat.row+seat.letter)), 1);
         this.RselectedSeatsClass.splice(this.RselectedSeatsClass.indexOf(seat.seatClass) ,1);
         seat.check=false;
+        this.Rseats.splice(this.Rseats.indexOf((seat)), 1);
         this.RpickedSeats--;
       }
       else if(!seat.check && this.maxSeats> this.RpickedSeats && seat.isAvailable)
@@ -105,6 +112,7 @@ export class SelectSeatsComponent implements OnInit {
         this.RselectedSeats.push(seat.row + seat.letter);
         this.RselectedSeatsClass.push(seat.seatClass);
         seat.check=true;
+        this.Rseats.push(seat);
         this.RpickedSeats++;
       }
     }

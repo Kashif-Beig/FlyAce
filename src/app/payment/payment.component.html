@@ -2,7 +2,7 @@
 
     <div class="creditCardForm">
     <div class="heading">
-        <h1 style="font-family:Verdana, Geneva, Tahoma, sans-serif">Payment</h1>{{PaymentForm.valid}} {{PaymentForm.value | json}}
+        <span style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-size: 30px;">Payment <span style="font-size:25px;">for</span>  {{finalAmount  | currency : 'INR' : 'symbol': '2.2'}}</span> 
         <hr class="line">
         <div class="icons"> <img src="https://img.icons8.com/color/48/000000/visa.png" /> <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" /> <img src="https://img.icons8.com/color/48/000000/maestro.png" /> </div>
     </div>

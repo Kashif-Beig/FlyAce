@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PassengersDetail } from '../card-inputs';
 import { Flight } from '../flight';
 import { SharedServiceService } from '../shared-service.service';
+import {Seat} from '../seat';
 @Component({
   selector: 'app-booking-details',
   templateUrl: './booking-details.component.html',
@@ -18,10 +19,15 @@ export class BookingDetailsComponent implements OnInit {
   businessPrice : number;
   ReconomyPrice: number;
   RbusinessPrice : number;
+  gstTax : number = 0;
+  baggageCharge : number =0;
+  finalAmount : number =0;
   passengersinfo : PassengersDetail[] = new Array;
   Rpassengersinfo : PassengersDetail[] = new Array;
   selectedSeatClass : string[] = new Array();
   RselectedSeatClass : string[] = new Array();
+  seats : Seat[] = new Array();
+  Rseats : Seat[] = new Array(); 
   ngOnInit(): void {
     this.sharedService.selectedFlight.subscribe((s)=>{
       this.selectedFlight = s;
@@ -39,6 +45,10 @@ export class BookingDetailsComponent implements OnInit {
       this.passengersinfo = pas;
     });
 
+    this.sharedService.seats.subscribe(pas =>{
+      this.seats = pas;
+    });
+
     if(this.tripType==1)
     {
       this.sharedService.Rpassengerinfo.subscribe(pas =>{
@@ -47,14 +57,19 @@ export class BookingDetailsComponent implements OnInit {
       this.sharedService.RselectedSeatClass.subscribe(pas =>{
         this.RselectedSeatClass  = pas;
       });
+      this.sharedService.Rseats.subscribe(pas =>{
+        this.Rseats = pas;
+      });
 
       this.RselectedSeatClass.forEach(element => {
         if(element=="business")
         {
           this.totalAmount = this.totalAmount + this.RselectedFlight.Price_B;
+          this.RbusinessPrice = this.RselectedFlight.Price_B;
         }
         else{
           this.totalAmount = this.totalAmount + this.RselectedFlight.Price_E;
+          this.ReconomyPrice = this.RselectedFlight.Price_E;
         }
       });
 
@@ -68,11 +83,18 @@ export class BookingDetailsComponent implements OnInit {
       if(element=="business")
       {
         this.totalAmount = this.totalAmount + this.selectedFlight.Price_B;
+        this.businessPrice = this.selectedFlight.Price_B;
       }
       else{
         this.totalAmount = this.totalAmount + this.selectedFlight.Price_E;
+        this.businessPrice = this.selectedFlight.Price_B;
       }
     });
+
+    this.gstTax = this.totalAmount * 0.1;
+    this.baggageCharge = this.totalAmount *0.07;
+    this.finalAmount = this.totalAmount + this.gstTax + this.baggageCharge;
+    this.sharedService.finalAmount.next(this.finalAmount);
 
   }
   

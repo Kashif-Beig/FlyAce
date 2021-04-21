@@ -8,20 +8,20 @@
   <div class ="tripsummary">
          <br> <h5  class="charges" style="color: rgb(68, 69, 124);font-weight: 800;">Total Travel Expenditure</h5> <br>
       <hr class="line">
-{{totalAmount}}
       <div class="paymentdetails">
                       <div class="charges">Fees</div>
-                      <div class="amount">Rs. 4700.00</div>
+                      <div class="amount">{{totalAmount | currency : 'INR' : 'symbol': '2.2'}}
+                        .00</div>
                       <br>
                       <br>
                       <div class="charges">Taxes & GST</div>
-                      <div class="amount">Rs. 460.00</div>
+                      <div class="amount">Rs. {{gstTax | currency : 'INR' : 'symbol'}}</div>
                       <br>
                       <div class="charges">Baggage Charges</div>
-                      <div class="amount">Rs. 1560.00</div>
+                      <div class="amount">{{baggageCharge | currency : 'INR' : 'symbol'}}</div>
                       <br>
                       <hr class="line">
-                      <div style="text-align: center;color: rgb(38, 107, 18);font: weight 50%;font-size:larger;">Total : Rs.5200  </div>
+                      <div style="text-align: center;color: rgb(38, 107, 18);font: weight 50%;font-size:larger;">Total : {{finalAmount  | currency : 'INR' : 'symbol': '2.2'}} </div>
   
       </div>
   </div>      

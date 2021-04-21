@@ -29,7 +29,7 @@ export class PaymentComponent implements OnInit {
       public sharedService:SharedServiceService
       ) { }
       tripType = 0;
-
+      finalAmount : number =0;
   ngOnInit(): void {
     this.sharedService.passengerinfo.subscribe(resu=>{
       this.passenger = resu;
@@ -38,14 +38,17 @@ export class PaymentComponent implements OnInit {
     this.sharedService.tripType.subscribe((fr)=>{
       this.tripType = fr;
     });
+    this.sharedService.finalAmount.subscribe((fr)=>{
+      this.finalAmount = fr;
+    });
   }
 
   onSubmit(){
     if(this.PaymentForm.valid)
  {
    this.CardInfo=this.PaymentForm.value;
-   this.CardInfo.TansactionType="ToBook";   
-   this.CardInfo.amount=2500;
+   this.CardInfo.TansactionType="Booking";   
+   this.CardInfo.amount=this.finalAmount;
    this.CardInfo.email= localStorage.getItem('email');
    this.sharedService.passengerinfo.subscribe(pas =>{
      this.CardInfo.passengersinfo = pas;

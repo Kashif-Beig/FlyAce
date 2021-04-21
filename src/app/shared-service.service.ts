@@ -23,5 +23,8 @@ export class SharedServiceService {
   selectedSeatClass : BehaviorSubject<string[]> = new BehaviorSubject(null);
   passengerinfo : BehaviorSubject<PassengersDetail[]> = new BehaviorSubject(null);
   Rpassengerinfo : BehaviorSubject<PassengersDetail[]> = new BehaviorSubject(null);
+  seats : BehaviorSubject<Seat[]> = new BehaviorSubject(null);
+  Rseats : BehaviorSubject<Seat[]> = new BehaviorSubject(null);
+  finalAmount : BehaviorSubject<number> = new BehaviorSubject(0);
   constructor() { }
 }
