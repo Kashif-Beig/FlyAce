@@ -1,5 +1,5 @@
-<div class="container text-center mx-5">
-    <form style="background-color:#221661;" class="text-center border border-light p-4 mt-2  mb-5 " [formGroup]="addflightsForm" (ngSubmit)="onSubmit()" novalidate>
+<div class="container text-center">
+    <form style="background-color:rgb(68, 69, 124);" class="form border border-light p-5 mt-5  mb-3" [formGroup]="addflightsForm" (ngSubmit)="onSubmit()" novalidate>
       
           <p class="h1 mb-4 text-white">Add Flights</p> 
   
@@ -21,12 +21,24 @@
           <div class="form-row mb-2"> 
             <div class="col">
               <p class="h5 text-left text-white ">From:</p>
-              <input type="text" id="source" class="form-control" placeholder="Source" name="source" formControlName="source">
+              <select id="source" class="dropdown-header" name="source" formControlName="source">
+                <option value="Mumbai" class="dropdown-item">Mumbai</option>
+                <option value="Delhi" class="dropdown-item">Delhi</option>
+                <option value="Hyderabad" class="dropdown-item">Hyderabad</option>
+                <option value="Chennai" class="dropdown-item">Chennai</option>
+                <option value="Jaipur" class="dropdown-item">Jaipur</option>
+            </select>
             </div> 
             
             <div class="col">
               <p class="h5 text-left text-white ">To:</p>
-              <input type="text" id="destination" class="form-control" placeholder="Destination" name="destination"formControlName="destination" >
+              <select id="source" class="dropdown-header" name="source" formControlName="destination">
+                <option value="Mumbai" class="dropdown-item">Mumbai</option>
+                <option value="Delhi" class="dropdown-item">Delhi</option>
+                <option value="Hyderabad" class="dropdown-item">Hyderabad</option>
+                <option value="Chennai" class="dropdown-item">Chennai</option>
+                <option value="Jaipur" class="dropdown-item">Jaipur</option>
+            </select>
             </div> 
           </div> 
   
@@ -69,11 +81,10 @@
             </div> 
             <div class="col">
               <p class="h5 text-left text-white ">Number of Weeks:</p>
-              <input type="number" class="form-control" formControlName="no_weeks" />
+              <input type="number" class="form-control" formControlName="no_weeks" min="1"/>
             </div>
         </div> 
         
-          <!-- Sign up button -->
           <button  class="my-4 btn-secondary btn-success btn-lg " type="submit">Submit</button>
     </form> 
     {{addflightsForm.valid}}{{addflightsForm.value | json}}
